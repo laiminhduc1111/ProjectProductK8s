@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registryserver
+spec:
+  selector:
+    matchLabels:
+      app: registryserver
+  template:
+    metadata:
+      labels:
+        app: registryserver
+    spec:
+      containers:
+        - name: registry
+          image: duclai2211/registryserver:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8761

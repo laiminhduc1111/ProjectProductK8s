@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: PRODUCT-SERVICE
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    time-zone: GMT+7
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
+  management:
+    security:
+      enable: false
+  main:
+    allow-bean-definition-overriding: true
+

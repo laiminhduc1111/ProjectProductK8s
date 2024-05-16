@@ -1,0 +1,7 @@
+okta:
+  oauth2:
+    issuer: https://dev-57924009.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oaghtzl7n5ke4Zc55d7
+    client-secret: ICHbcjKYp2QwJmIn43opu3g6wZiwzthE008FjlQz0KiRyA9KxfTyxxm3KZhOzm7x
+    scopes: openid+profile+offline_access+email

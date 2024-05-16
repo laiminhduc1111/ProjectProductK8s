@@ -1,0 +1,32 @@
+version: '3'
+services:
+  registryserver:
+    image: 'duclai2211/registryserver:latest'
+    container_name: registryserver
+    ports:
+      - '8761:8761'
+  configserver:
+    image: 'duclai2211/configserver:latest'
+    container_name: configserver
+    ports:
+      - '9296:9296'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://registryserver:8761/eureka
+    depends_on:
+      - registryserver
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://configserver:9296/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  apigateway:
+    image: 'duclai2211/apigateway:latest'
+    container_name: apigateway
+    ports:
+      - '9090:9090'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http://registryserver:8761/eureka
+      - CONFIG_SERVER_URL=configserver
+    depends_on:
+       configserver:
+         condition: service_healthy
