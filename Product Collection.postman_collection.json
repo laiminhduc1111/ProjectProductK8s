@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "0997a2ba-8aa2-49b2-a888-cf135218cab3",
+		"name": "Product Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23901813"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Gear\",\r\n    \"price\": 1000,\r\n    \"quantity\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product/2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reduce quantity",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/reduceQuantity/53?quantity=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"reduceQuantity",
+								"53"
+							],
+							"query": [
+								{
+									"key": "quantity",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":202,\r\n    \"totalAmount\":\"1200\",\r\n    \"price\": 1000,\r\n    \"paymentMode\": \"CASH\",\r\n    \"quantity\":2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/order/placeOrder",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"order",
+								"placeOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get orderDetails",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\":152,\r\n    \"totalAmount\":\"1200\",\r\n    \"price\": 1000,\r\n    \"paymentMode\": \"CASH\",\r\n    \"quantity\":2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/order/1302",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"order",
+								"1302"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authen",
+			"item": [
+				{
+					"name": "apitest",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiJ6ZUVxcGdwRUVOX1NEZ01IbUZaNU1KNVN5TTFxLTlzWEphdEI3blZpdWJzIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnNiZlFfRXFwZnp3bUd3cndmNVZDaDVOMXdaMWZMVDdlVEpaVDBNcUpiMmcub2FyMXgxYjN3cjc0Q01CNUI1ZDciLCJpc3MiOiJodHRwczovL2Rldi01NzkyNDAwOS5va3RhLmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE3MTQxMDE2NTQsImV4cCI6MTcxNDEwNTI1NCwiY2lkIjoiMG9hZ2h0emw3bjVrZTRaYzU1ZDciLCJ1aWQiOiIwMHVnaHViMTZlT2JPNFE5UjVkNyIsInNjcCI6WyJvZmZsaW5lX2FjY2VzcyIsIm9wZW5pZCIsInByb2ZpbGUiXSwiYXV0aF90aW1lIjoxNzE0MDk1ODU2LCJzdWIiOiJtaW5oZHVjbGFpLm12cEBnbWFpbC5jb20iLCJncm91cHMiOlsiRXZlcnlvbmUiLCJBZG1pbiJdfQ.PZeT5wPZ-J3CkBWEJqGktxHvFgvsAMAiKU6ucOHqIsTrqChwNifwfAfZKlyhS_l4JC-ry6CHluSavyH0atylADs_Emj-4ikTp2iCvDjOBfMvOlXMkA1ElGNNJr1batdoc_wd7JjXPcL2mjGqyWXG5Y7Rba4uOmwfAc4xBdRTrgUbZYspREbBaOltAOfUXQqqcwbtNYMhn9Rt7TsCZN2GIE7NXCMbW40wJNKFnWtqG6UbHxlqIpLHypL7augyz2FhC8yRawCsgglRdlpawD-l0i4wDa7X8Gfoyr2Ohi0wn77khBYJQv8CtubLQNEgZ7Vy6HvPv0M68uPa5MN4uSE8Vw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:9090/hello",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hello"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code, refresh_token",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "openid",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:9090/login2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"login2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
